@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Version=0.9.4
+Name=Uninstall IDA Professional 9.0
+Comment=Uninstall
+Icon=
+Exec=/home/sondt/idapro-9.0/uninstall
+Terminal=false
+Path=/home/sondt/idapro-9.0
