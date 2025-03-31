@@ -1,0 +1,56 @@
+
+@importtheme "_base";
+
+CustomIDAMemo
+{
+    qproperty-line-fg-default                     : blue;        /* Default                                       */
+    qproperty-line-fg-regular-comment             : blue;        /* Regular comment                               */
+    qproperty-line-fg-repeatable-comment          : gray;        /* Repeatable commen                             */
+    qproperty-line-fg-automatic-comment           : gray;        /* Automatic comment                             */
+    qproperty-line-fg-insn                        : navy;        /* Instruction                                   */
+    qproperty-line-fg-dummy-data-name             : navy;        /* Dummy Data Name                               */
+    qproperty-line-fg-regular-data-name           : blue;        /* Regular Data Name                             */
+    qproperty-line-fg-demangled-name              : blue;        /* Demangled Name                                */
+    qproperty-line-fg-punctuation                 : navy;        /* Punctuation                                   */
+    qproperty-line-fg-charlit-in-insn             : green;       /* Char constant                                 */
+    qproperty-line-fg-strlit-in-insn              : lime;        /* String constant                               */
+    qproperty-line-fg-numlit-in-insn              : green;       /* Numeric constant                              */
+    qproperty-line-fg-void-opnd                   : #FF8000;     /* Void operand                                  */
+    qproperty-line-fg-code-xref                   : green;       /* Code reference                                */
+    qproperty-line-fg-data-xref                   : #8080FF;     /* Data reference                                */
+    qproperty-line-fg-code-xref-to-tail           : red;         /* Code reference to tail byte                   */
+    qproperty-line-fg-data-xref-to-tail           : olive;       /* Data reference to tail byte                   */
+    qproperty-line-fg-error                       : #010101;     /* Error or problem                              */
+    qproperty-line-fg-line-prefix                 : silver;      /* Line prefix                                   */
+    qproperty-line-fg-opcode-byte                 : blue;        /* Opcode bytes                                  */
+    qproperty-line-fg-extra-line                  : blue;        /* Extra line                                    */
+    qproperty-line-fg-alt-opnd                    : blue;        /* Alternative operand                           */
+    qproperty-line-fg-hidden                      : gray;        /* Hidden name                                   */
+    qproperty-line-fg-libfunc                     : #8080FF;     /* Library function name                         */
+    qproperty-line-fg-locvar                      : green;       /* Local variable name                           */
+    qproperty-line-fg-dummy-code-name             : navy;        /* Dummy code name                               */
+    qproperty-line-fg-asm-directive               : blue;        /* Assembler directive                           */
+    qproperty-line-fg-macro                       : purple;      /* Macro                                         */
+    qproperty-line-fg-strlit-in-data              : green;       /* String constant in data directive             */
+    qproperty-line-fg-charlit-in-data             : green;       /* Char constant in data directive               */
+    qproperty-line-fg-numlit-in-data              : #008040;     /* Numeric constant in data directive            */
+    qproperty-line-fg-keyword                     : navy;        /* Keywords (offset, byte ptr, near)             */
+    qproperty-line-fg-register-name               : navy;        /* Register name                                 */
+    qproperty-line-fg-import-name                 : fuchsia;     /* Imported name                                 */
+    qproperty-line-fg-segment-name                : olive;       /* Segment name                                  */
+    qproperty-line-fg-dummy-unknown-name          : navy;        /* Dummy unknown name                            */
+    qproperty-line-fg-code-name                   : blue;        /* Regular Code Name                             */
+    qproperty-line-fg-unknown-name                : navy;        /* Regular Unknown Name                          */
+    qproperty-line-fg-collapsed-line              : blue;        /* Collapsed line                                */
+    qproperty-line-bg-default                     : white;       /* Default background                            */
+    qproperty-line-bg-selected                    : #C0BBAF;     /* Selected background                           */
+    qproperty-line-pfx-libfunc                    : cyan;        /* Line prefix: Library function                 */
+    qproperty-line-pfx-func                       : black;       /* Line prefix: Regular function                 */
+    qproperty-line-pfx-insn                       : maroon;      /* Line prefix: Single instruction               */
+    qproperty-line-pfx-data                       : gray;        /* Line prefix: Data bytes                       */
+    qproperty-line-pfx-unexplored                 : olive;       /* Line prefix: Unexplored byte                  */
+    qproperty-line-pfx-extern                     : fuchsia;     /* Line prefix: External name definition segment */
+    qproperty-line-pfx-current-line               : blue;        /* Line prefix: Current line                     */
+    qproperty-line-pfx-hidden-line                : black;       /* Line prefix: Hidden line                      */
+    qproperty-line-pfx-lumina                     : #32CD32;     /* Line prefix: Lumina                           */
+}
