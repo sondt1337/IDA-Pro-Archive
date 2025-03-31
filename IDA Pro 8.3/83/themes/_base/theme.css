@@ -1,0 +1,584 @@
+
+@def base_highlight_color rgba(255, 255, 0, 0.80);
+
+DockWidgetTitle
+{
+    padding: 0px;
+    margin-bottom: 2px;
+}
+
+DockAreaDragTitle
+{
+    background-color: palette(dark);
+}
+
+DockWidgetTitle[active="true"]
+{
+    background-color: palette(base);
+}
+
+DockWidgetTitle > QPushButton,
+DockAreaDragTitle > QPushButton
+{
+    min-width: 20px;
+    min-height: 20px;
+}
+
+DockWidgetTitle > QPushButton:!hover,
+DockAreaDragTitle > QPushButton:!hover
+{
+    border: none;
+}
+
+chooser_widget_t,
+standalone_dirtree_widget_t
+{
+    qproperty-highlight-bg-default: ${base_highlight_color};
+    qproperty-highlight-bg-selected: rgba(0, 192, 192, 0.80);
+
+    qproperty-cut-text-color-default : silver;
+    qproperty-cut-text-color-selected : grey;
+}
+
+chooser_widget_t[os-dark-theme="true"],
+standalone_dirtree_widget_t[os-dark-theme="true"]
+{
+    qproperty-highlight-bg-default: red;
+    qproperty-highlight-bg-selected: pink;
+
+    qproperty-cut-text-color-default : darkgrey;
+    qproperty-cut-text-color-selected : grey;
+}
+
+log_widget_t
+{
+    color            : black;
+    background-color : white;
+}
+
+log_widget_t[os-dark-theme="true"]
+{
+    color: #ddd;
+    background-color: #2d2d2d;
+}
+
+text_area_t
+{
+    qproperty-keyword1-fg: blue;
+    qproperty-keyword1-weight: 0;
+    qproperty-keyword1-italic: 0;
+
+    qproperty-keyword2-fg: purple;
+    qproperty-keyword2-weight: 0;
+    qproperty-keyword2-italic: 0;
+
+    qproperty-keyword3-fg: red;
+    qproperty-keyword3-weight: 0;
+    qproperty-keyword3-italic: 0;
+
+    qproperty-string-fg: darkred;
+    qproperty-string-weight: 0;
+    qproperty-string-italic: 0;
+
+    qproperty-comment-fg: darkgreen;
+    qproperty-comment-weight: 0;
+    qproperty-comment-italic: 1;
+
+    qproperty-preprocessor-fg: blue;
+    qproperty-preprocessor-weight: 1;
+    qproperty-preprocessor-italic: 0;
+
+    qproperty-number-fg: darkcyan;
+    qproperty-number-weight: 1;
+    qproperty-number-italic: 0;
+}
+
+text_area_t text_area_margin_widget_t
+{
+    color: grey;
+    qproperty-header-color: dimgrey;
+}
+
+text_area_dialog_t QLabel#counter_label
+{
+    color: grey;
+}
+
+text_area_dialog_t QLabel#counter_label[invalid=true]
+{
+    color: red;
+}
+
+@def darkening 125;
+@def lightening 125;
+
+@def diff_region_pick   #8AD1A9; /* light green */
+@def diff_region_pick_l @lighten(${diff_region_pick}, ${lightening});
+@def diff_region_pick_d @darken(${diff_region_pick}, ${darkening});
+
+@def diff_region_leave   silver;
+@def diff_region_leave_l @lighten(${diff_region_leave}, ${lightening});
+@def diff_region_leave_d @darken(${diff_region_leave}, ${darkening});
+
+@def diff_region_conflict   #FF7C4C; /* light orange/red */
+@def diff_region_conflict_l @lighten(${diff_region_conflict}, ${lightening});
+@def diff_region_conflict_d @darken(${diff_region_conflict}, ${darkening});
+
+/* make that guy behave as if it were a regular widget, by killing the default QGroupBox spacing */
+LabeledWidgetContainer
+{
+    border: 0;
+    padding: 0;
+}
+
+QSplitter::handle:horizontal
+{
+    width: 4px;
+}
+
+QSplitter::handle:vertical
+{
+    height: 4px;
+}
+
+ActionsInspector QLineEdit
+{
+    width: 16em;
+}
+
+ActionsInspector QKeySequenceEdit
+{
+    width: 16em;
+}
+
+CustomIDAMemo
+{
+    /* misc */
+    qproperty-line-fg-patched-bytes     : #804040;                   /* patched bytes (brown-ish) */
+    qproperty-line-fg-unsaved-changes   : #FF8000;                   /* unsaved changes (orange-ish) */
+    qproperty-line-bg-highlight         : ${base_highlight_color};   /* highlighting background */
+    qproperty-line-bg-highlight-2       : rgba(255, 192, 128, 0.80); /* highlighting background #2 */
+    qproperty-line-bg-highlight-3       : rgba(255, 128, 255, 0.80); /* highlighting background #3 */
+    qproperty-line-bg-highlight-4       : rgba(128, 255, 255, 0.80); /* highlighting background #4 */
+    qproperty-line-bg-highlight-5       : rgba(192, 128, 128, 0.80); /* highlighting background #5 */
+    qproperty-line-bg-highlight-6       : rgba(128, 192, 128, 0.80); /* highlighting background #6 */
+    qproperty-line-bg-highlight-7       : rgba(128, 128, 192, 0.80); /* highlighting background #7 */
+    qproperty-line-bg-highlight-8       : rgba(208, 208, 208, 0.80); /* highlighting background #8 */
+    qproperty-caret                     : black;                     /* Caret (cursor) */
+    qproperty-line-pfx-current-item     : rgba(0, 0, 0, 0);          /* Line prefix: Current item (transparent by default) */
+    qproperty-line-bgovl-current-line   : rgba(80, 80, 80, 0.15);    /* current line background overlay */
+    qproperty-line-bgovl-trace          : rgba(255, 255, 0, 0.20);   /* Trace line background overlay */
+    qproperty-line-bgovl-trace-ovl      : rgba(255, 188, 180, 0.40); /* Second trace line background overlay */
+    qproperty-line-bgovl-extra-1        : rgba(80, 255, 80, 0.25);   /* Extra background overlay #1 */
+    qproperty-line-bgovl-extra-2        : rgba(238, 255, 136, 0.25); /* Extra background overlay #2 */
+    qproperty-line-bgovl-extra-3        : rgba(255, 170, 0, 0.4);    /* Extra background overlay #3 */
+    qproperty-line-bgovl-extra-4        : rgba(255, 126, 232, 0.4);  /* Extra background overlay #4 */
+    qproperty-line-bgovl-extra-5        : rgba(219, 150, 69, 0.4);   /* Extra background overlay #5 */
+    qproperty-line-bgovl-extra-6        : rgba(69, 207, 219, 0.4);   /* Extra background overlay #6 */
+    qproperty-line-bgovl-extra-7        : rgba(143, 219, 69, 0.4);   /* Extra background overlay #7 */
+    qproperty-line-bgovl-extra-8        : rgba(86, 88, 126, 0.4);    /* Extra background overlay #8 */
+    qproperty-line-bgovl-extra-9        : rgba(217, 90, 111, 0.4);   /* Extra background overlay #9 */
+    qproperty-line-bgovl-extra-10       : rgba(128, 147, 132, 0.4);  /* Extra background overlay #10 */
+    qproperty-line-bgovl-extra-11       : rgba(255, 0, 120, 0.4);    /* Extra background overlay #11 */
+    qproperty-line-bgovl-extra-12       : rgba(255, 192, 0, 0.4);    /* Extra background overlay #12 */
+    qproperty-line-bgovl-extra-13       : rgba(255, 192, 255, 0.4);  /* Extra background overlay #13 */
+    qproperty-line-bgovl-extra-14       : rgba(133, 133, 133, 0.4);  /* Extra background overlay #14 */
+    qproperty-line-bgovl-extra-15       : rgba(203, 210, 166, 0.4);  /* Extra background overlay #15 */
+    qproperty-line-bgovl-extra-16       : rgba(0, 90, 0, 0.4);       /* Extra background overlay #16 */
+
+    /* graph */
+    qproperty-graph-bg-top              : white;
+    qproperty-graph-bg-bottom           : #E0F8FF;
+    qproperty-graph-node-title-normal   : white;
+    qproperty-graph-node-title-selected : #B1F9F9;
+    qproperty-graph-node-title-current  : #A0CFCF;
+    qproperty-graph-node-frame-group    : yellow;
+    qproperty-graph-node-shadow         : black;
+    qproperty-graph-node-high1          : #CCFFFF;
+    qproperty-graph-node-high2          : #CCFFCC;
+    qproperty-graph-node-foreign        : red;
+    qproperty-graph-edge-normal         : blue;
+    qproperty-graph-edge-yes            : green;
+    qproperty-graph-edge-no             : red;
+    qproperty-graph-edge-high           : fuchsia;
+    qproperty-graph-edge-current        : cyan;
+
+    /* bpts */
+    qproperty-line-bg-bpt-enabled        : red;
+    qproperty-line-bg-bpt-disabled       : lime;
+    qproperty-line-bg-bpt-unavailable    : #FF8000;
+
+    /* diff/merge */
+    qproperty-line-bgovl-diff-region-pick:             ${diff_region_pick_l};
+    qproperty-line-bgovl-diff-region-leave:            ${diff_region_leave_l};
+    qproperty-line-bgovl-diff-region-conflict:         ${diff_region_conflict_l};
+
+    qproperty-line-bgovl-diff-region-pick-current:     ${diff_region_pick};
+    qproperty-line-bgovl-diff-region-leave-current:    ${diff_region_leave};
+    qproperty-line-bgovl-diff-region-conflict-current: ${diff_region_conflict};
+
+    /* bookmarks */
+    qproperty-line-bgovl-bookmark:      rgba(0, 255, 128, 0.125);
+    qproperty-bookmark-star-outline:    rgba(0, 255, 128, 0.45);
+}
+
+CustomIDAMemo[debugging="true"]
+{
+    qproperty-line-bg-default            : #CCFFFF;
+    qproperty-line-bgovl-current-ip      : rgba(0, 195, 255, .45);
+}
+
+CustomIDAMemo[hints="true"]
+{
+    qproperty-line-bg-default            : #FFFFE1;         /* hints background (pale yellow) */
+}
+
+TextArrows
+{
+    qproperty-jump-in-function          : silver;
+    qproperty-jump-external-to-function : red;
+    qproperty-jump-under-cursor         : black;
+    qproperty-jump-target               : green;
+    qproperty-register-target           : #4040FF;
+    qproperty-bpt-possible              : #60D0FF;
+}
+
+MainMsgList
+{
+    color            : black;
+    background-color : white;
+}
+
+TCpuRegs
+{
+    background-color: #CCFFFF;
+    qproperty-register-defined: black;
+    qproperty-register-changed: blue;
+    qproperty-register-edited: purple;
+    qproperty-register-unavailable: gray;
+}
+
+TCpuRegs QPushButton
+{
+    background: transparent;
+}
+
+TCpuRegs ui_label_t
+{
+    color: blue;
+}
+
+TCpuRegs[os-dark-theme="true"]
+{
+    background-color: #4D4D4D;
+    qproperty-register-defined: white;
+    qproperty-register-changed: #FFFF7F;
+    qproperty-register-edited: #FF7F17;
+    qproperty-register-unavailable: #808080;
+}
+
+TCpuRegs ui_label_t[os-dark-theme="true"]
+{
+    color: #AAAAAA;
+}
+
+navband_t
+{
+    qproperty-lib-function : #AAFFFF;
+    qproperty-function : #00A2E8;
+    qproperty-code : #B97A57;
+    qproperty-data : silver;
+    qproperty-undefined : #B6B66B;
+    qproperty-extern : #FFA6FF;
+    qproperty-lumina-function : #32CD32;
+
+    qproperty-hl-lib-function : #C3FFFF;
+    qproperty-hl-function : #3CC4FF;
+    qproperty-hl-code : #CDA189;
+    qproperty-hl-data : #D2D2D2;
+    qproperty-hl-undefined : #CBCB97;
+    qproperty-hl-extern : #FFC0FF;
+    qproperty-hl-lumina-function : #6FDB6F;
+
+    qproperty-hl-outline : #FF0080;
+
+    qproperty-error : #FF5B5B;
+    qproperty-gap : black;
+    qproperty-cursor : #FFFF7F;
+    qproperty-auto-analysis-cursor : #FFAA00;
+}
+
+navband_t[os-dark-theme="true"]
+{
+    qproperty-lib-function: #00aaff;
+    qproperty-function: #ffaa00;
+    qproperty-code: #800000;
+    qproperty-data: #ebebb9;
+    qproperty-undefined: #787800;
+    qproperty-extern: #ff00ff;
+    qproperty-lumina-function: #32cd32;
+
+    qproperty-hl-lib-function: #4cc3fe;
+    qproperty-hl-function: #fec34c;
+    qproperty-hl-code: #f20000;
+    qproperty-hl-data: #f1f1ce;
+    qproperty-hl-undefined: #ecec00;
+    qproperty-hl-extern: #fe4cfe;
+    qproperty-hl-lumina-function: #6fdb6f;
+
+    qproperty-hl-outline : cyan;
+
+    qproperty-error: #ca0000;
+    qproperty-gap: #4a4a4a;
+    qproperty-cursor: #80ff00;
+    qproperty-auto-analysis-cursor: #ff8000;
+}
+
+TChooser,
+generic_dirtree_widget_t
+{
+    qproperty-highlight-bg-diff-region-pick:             ${diff_region_pick_l};
+    qproperty-highlight-bg-diff-region-leave:            ${diff_region_leave_l};
+    qproperty-highlight-bg-diff-region-conflict:         ${diff_region_conflict_l};
+
+    qproperty-highlight-bg-diff-region-pick-current:     ${diff_region_pick};
+    qproperty-highlight-bg-diff-region-leave-current:    ${diff_region_leave};
+    qproperty-highlight-bg-diff-region-conflict-current: ${diff_region_conflict};
+}
+
+diff_fringe_t
+{
+    background-color: white;
+
+    qproperty-diff-region-pick:                             ${diff_region_pick_l};
+    qproperty-diff-region-pick-boundaries:                  ${diff_region_pick_l};
+    qproperty-diff-region-pick-current:                     ${diff_region_pick};
+    qproperty-diff-region-pick-current-boundaries:          ${diff_region_pick_d};
+
+    qproperty-diff-region-leave:                            ${diff_region_leave_l};
+    qproperty-diff-region-leave-boundaries:                 ${diff_region_leave_l};
+    qproperty-diff-region-leave-current:                    ${diff_region_leave};
+    qproperty-diff-region-leave-current-boundaries:         ${diff_region_leave_d};
+
+    qproperty-diff-region-conflict:                         ${diff_region_conflict_l};
+    qproperty-diff-region-conflict-boundaries:              ${diff_region_conflict_l};
+    qproperty-diff-region-conflict-current:                 ${diff_region_conflict};
+    qproperty-diff-region-conflict-current-boundaries:      ${diff_region_conflict_d};
+}
+
+IDAMainWindow
+{
+    /*
+      Note: `:/`-starting paths are resources built-in the IDA binary.
+
+      Themes can either rely on those, or specify paths to their own
+      images, by doing using a `$RELPATH` directive. E.g.,
+
+      qproperty-themeicon-AddConst: url("$RELPATH/icons/actions/my_icon.png");
+   */
+    qproperty-themeicon-AddConst:                                   url(":/IDAG/resources/menu/AddConst.png");
+    qproperty-themeicon-AddEnum:                                    url(":/IDAG/resources/menu/AddEnum.png");
+    qproperty-themeicon-AddStruct:                                  url(":/IDAG/resources/menu/AddStruct.png");
+    qproperty-themeicon-AddWatch:                                   url(":/IDAG/resources/menu/AddWatch.png");
+    qproperty-themeicon-Analysis:                                   url(":/IDAG/resources/menu/Analysis.png");
+    qproperty-themeicon-AskBinaryText:                              url(":/IDAG/resources/menu/AskBinaryText.png");
+    qproperty-themeicon-AskNextImmediate:                           url(":/IDAG/resources/menu/AskNextImmediate.png");
+    qproperty-themeicon-AskNextText:                                url(":/IDAG/resources/menu/AskNextText.png");
+    qproperty-themeicon-BitwiseNegate:                              url(":/IDAG/resources/menu/BitwiseNegate.png");
+    qproperty-themeicon-BreakpointAdd:                              url(":/IDAG/resources/menu/BreakpointAdd.png");
+    qproperty-themeicon-BreakpointDel:                              url(":/IDAG/resources/menu/BreakpointDel.png");
+    qproperty-themeicon-BreakpointDisable:                          url(":/IDAG/resources/menu/BreakpointDisable.png");
+    qproperty-themeicon-BreakpointEdit:                             url(":/IDAG/resources/menu/BreakpointEdit.png");
+    qproperty-themeicon-BreakpointEnable:                           url(":/IDAG/resources/menu/BreakpointEnable.png");
+    qproperty-themeicon-Breakpoints:                                url(":/IDAG/resources/menu/Breakpoints.png");
+    qproperty-themeicon-Calculate:                                  url(":/IDAG/resources/menu/Calculate.png");
+    qproperty-themeicon-CallFlow:                                   url(":/IDAG/resources/menu/CallFlow.png");
+    qproperty-themeicon-ChangeSign:                                 url(":/IDAG/resources/menu/ChangeSign.png");
+    qproperty-themeicon-ChartXrefsFrom:                             url(":/IDAG/resources/menu/ChartXrefsFrom.png");
+    qproperty-themeicon-ChartXrefsTo:                               url(":/IDAG/resources/menu/ChartXrefsTo.png");
+    qproperty-themeicon-ChartXrefsUser:                             url(":/IDAG/resources/menu/ChartXrefsUser.png");
+    qproperty-themeicon-CopyStruct:                                 url(":/IDAG/resources/menu/CopyStruct.png");
+    qproperty-themeicon-CreateStructFromData:                       url(":/IDAG/resources/menu/CreateStructFromData.png");
+    qproperty-themeicon-Debugger:                                   url(":/IDAG/resources/menu/Debugger.png");
+    qproperty-themeicon-DeclareStructVar:                           url(":/IDAG/resources/menu/DeclareStructVar.png");
+    qproperty-themeicon-DelConst:                                   url(":/IDAG/resources/menu/DelConst.png");
+    qproperty-themeicon-DelEnum:                                    url(":/IDAG/resources/menu/DelEnum.png");
+    qproperty-themeicon-DelHiddenRange:                             url(":/IDAG/resources/menu/DelHiddenRange.png");
+    qproperty-themeicon-DelStruct:                                  url(":/IDAG/resources/menu/DelStruct.png");
+    qproperty-themeicon-DelWatch:                                   url(":/IDAG/resources/menu/DelWatch.png");
+    qproperty-themeicon-DumpDatabase:                               url(":/IDAG/resources/menu/DumpDatabase.png");
+    qproperty-themeicon-DeleteDesktop:                              url(":/IDAG/resources/menu/DeleteDesktop.png");
+    qproperty-themeicon-DumpTypes:                                  url(":/IDAG/resources/menu/DumpTypes.png");
+    qproperty-themeicon-EditConst:                                  url(":/IDAG/resources/menu/EditConst.png");
+    qproperty-themeicon-EditCopy:                                   url(":/IDAG/resources/menu/EditCopy.png");
+    qproperty-themeicon-EditEnum:                                   url(":/IDAG/resources/menu/EditEnum.png");
+    qproperty-themeicon-EditFunction:                               url(":/IDAG/resources/menu/EditFunction.png");
+    qproperty-themeicon-EditStruct:                                 url(":/IDAG/resources/menu/EditStruct.png");
+    qproperty-themeicon-ExecTraceAdd:                               url(":/IDAG/resources/menu/ExecTraceAdd.png");
+    qproperty-themeicon-Execute:                                    url(":/IDAG/resources/menu/Execute.png");
+    qproperty-themeicon-ExecuteLine:                                url(":/IDAG/resources/menu/ExecuteLine.png");
+    qproperty-themeicon-ExpandStruct:                               url(":/IDAG/resources/menu/ExpandStruct.png");
+    qproperty-themeicon-Function:                                   url(":/IDAG/resources/menu/Function.png");
+    qproperty-themeicon-GraphColor:                                 url(":/IDAG/resources/menu/GraphColor.png");
+    qproperty-themeicon-GraphFlatView:                              url(":/IDAG/resources/menu/GraphFlatView.png");
+    qproperty-themeicon-GraphFunc:                                  url(":/IDAG/resources/menu/GraphFunc.png");
+    qproperty-themeicon-GraphGraphView:                             url(":/IDAG/resources/menu/GraphGraphView.png");
+    qproperty-themeicon-GraphGroup:                                 url(":/IDAG/resources/menu/GraphGroup.png");
+    qproperty-themeicon-GraphLayout:                                url(":/IDAG/resources/menu/GraphLayout.png");
+    qproperty-themeicon-GraphNewProximityView:                      url(":/IDAG/resources/menu/GraphNewProximityView.png");
+    qproperty-themeicon-GraphOrthogonalLayout:                      url(":/IDAG/resources/menu/GraphOrthogonalLayout.png");
+    qproperty-themeicon-GraphOverview:                              url(":/IDAG/resources/menu/GraphOverview.png");
+    qproperty-themeicon-GraphPrint:                                 url(":/IDAG/resources/menu/GraphPrint.png");
+    qproperty-themeicon-GraphProximityAddGraph:                     url(":/IDAG/resources/menu/GraphProximityAddGraph.png");
+    qproperty-themeicon-GraphProximityAddNode:                      url(":/IDAG/resources/menu/GraphProximityAddNode.png");
+    qproperty-themeicon-GraphProximityAddNodeByAddr:                url(":/IDAG/resources/menu/GraphProximityAddNodeByAddr.png");
+    qproperty-themeicon-GraphProximityAddParents:                   url(":/IDAG/resources/menu/GraphProximityAddParents.png");
+    qproperty-themeicon-GraphProximityDelChilds:                    url(":/IDAG/resources/menu/GraphProximityDelChilds.png");
+    qproperty-themeicon-GraphProximityDelNode:                      url(":/IDAG/resources/menu/GraphProximityDelNode.png");
+    qproperty-themeicon-GraphProximityDelParents:                   url(":/IDAG/resources/menu/GraphProximityDelParents.png");
+    qproperty-themeicon-GraphProximityFindPath:                     url(":/IDAG/resources/menu/GraphProximityFindPath.png");
+    qproperty-themeicon-GraphProximityView:                         url(":/IDAG/resources/menu/GraphProximityView.png");
+    qproperty-themeicon-GraphSetupColors:                           url(":/IDAG/resources/menu/GraphSetupColors.png");
+    qproperty-themeicon-GraphSetupOptions:                          url(":/IDAG/resources/menu/GraphSetupOptions.png");
+    qproperty-themeicon-GraphUngroup:                               url(":/IDAG/resources/menu/GraphUngroup.png");
+    qproperty-themeicon-GraphZoom100:                               url(":/IDAG/resources/menu/GraphZoom100.png");
+    qproperty-themeicon-GraphZoomFit:                               url(":/IDAG/resources/menu/GraphZoomFit.png");
+    qproperty-themeicon-Hide:                                       url(":/IDAG/resources/menu/Hide.png");
+    qproperty-themeicon-HideAll:                                    url(":/IDAG/resources/menu/HideAll.png");
+    qproperty-themeicon-JumpBinaryText:                             url(":/IDAG/resources/menu/JumpBinaryText.png");
+    qproperty-themeicon-JumpEnter:                                  url(":/IDAG/resources/menu/JumpEnter.png");
+    qproperty-themeicon-JumpEnterNew:                               url(":/IDAG/resources/menu/JumpEnterNew.png");
+    qproperty-themeicon-JumpImmediate:                              url(":/IDAG/resources/menu/JumpImmediate.png");
+    qproperty-themeicon-JumpNewDump:                                url(":/IDAG/resources/menu/JumpNewDump.png");
+    qproperty-themeicon-JumpText:                                   url(":/IDAG/resources/menu/JumpText.png");
+    qproperty-themeicon-JumpToIP:                                   url(":/IDAG/resources/menu/JumpToIP.png");
+    qproperty-themeicon-LoadDesktop:                                url(":/IDAG/resources/menu/LoadDesktop.png");
+    qproperty-themeicon-LoadFile:                                   url(":/IDAG/resources/menu/LoadFile.png");
+    qproperty-themeicon-LoadNewFile:                                url(":/IDAG/resources/menu/LoadNewFile.png");
+    qproperty-themeicon-LoadSigFile:                                url(":/IDAG/resources/menu/LoadSigFile.png");
+    qproperty-themeicon-Locals:                                     url(":/IDAG/resources/menu/Locals.png");
+    qproperty-themeicon-MakeArray:                                  url(":/IDAG/resources/menu/MakeArray.png");
+    qproperty-themeicon-MakeStrlit:                                 url(":/IDAG/resources/menu/MakeStrlit.png");
+    qproperty-themeicon-MakeCode:                                   url(":/IDAG/resources/menu/MakeCode.png");
+    qproperty-themeicon-MakeComment:                                url(":/IDAG/resources/menu/MakeComment.png");
+    qproperty-themeicon-MakeData:                                   url(":/IDAG/resources/menu/MakeData.png");
+    qproperty-themeicon-MakeExtraLineA:                             url(":/IDAG/resources/menu/MakeExtraLineA.png");
+    qproperty-themeicon-MakeExtraLineB:                             url(":/IDAG/resources/menu/MakeExtraLineB.png");
+    qproperty-themeicon-MakeFunction:                               url(":/IDAG/resources/menu/MakeFunction.png");
+    qproperty-themeicon-MakeName:                                   url(":/IDAG/resources/menu/MakeName.png");
+    qproperty-themeicon-MakeRptCmt:                                 url(":/IDAG/resources/menu/MakeRptCmt.png");
+    qproperty-themeicon-MakeUnknown:                                url(":/IDAG/resources/menu/MakeUnknown.png");
+    qproperty-themeicon-ManualOperand:                              url(":/IDAG/resources/menu/ManualOperand.png");
+    qproperty-themeicon-Modules:                                    url(":/IDAG/resources/menu/Modules.png");
+    qproperty-themeicon-OpAnyOffset:                                url(":/IDAG/resources/menu/OpAnyOffset.png");
+    qproperty-themeicon-OpBinary:                                   url(":/IDAG/resources/menu/OpBinary.png");
+    qproperty-themeicon-OpChar:                                     url(":/IDAG/resources/menu/OpChar.png");
+    qproperty-themeicon-OpDecimal:                                  url(":/IDAG/resources/menu/OpDecimal.png");
+    qproperty-themeicon-OpEnum:                                     url(":/IDAG/resources/menu/OpEnum.png");
+    qproperty-themeicon-OpFloat:                                    url(":/IDAG/resources/menu/OpFloat.png");
+    qproperty-themeicon-OpHex:                                      url(":/IDAG/resources/menu/OpHex.png");
+    qproperty-themeicon-OpNumber:                                   url(":/IDAG/resources/menu/OpNumber.png");
+    qproperty-themeicon-OpOctal:                                    url(":/IDAG/resources/menu/OpOctal.png");
+    qproperty-themeicon-OpOffset:                                   url(":/IDAG/resources/menu/OpOffset.png");
+    qproperty-themeicon-OpOffsetCs:                                 url(":/IDAG/resources/menu/OpOffsetCs.png");
+    qproperty-themeicon-OpSegment:                                  url(":/IDAG/resources/menu/OpSegment.png");
+    qproperty-themeicon-OpStackVariable:                            url(":/IDAG/resources/menu/OpStackVariable.png");
+    qproperty-themeicon-OpStructOffset:                             url(":/IDAG/resources/menu/OpStructOffset.png");
+    qproperty-themeicon-OpUserOffset:                               url(":/IDAG/resources/menu/OpUserOffset.png");
+    qproperty-themeicon-OpenCallers:                                url(":/IDAG/resources/menu/OpenCallers.png");
+    qproperty-themeicon-OpenEnums:                                  url(":/IDAG/resources/menu/OpenEnums.png");
+    qproperty-themeicon-OpenExports:                                url(":/IDAG/resources/menu/OpenExports.png");
+    qproperty-themeicon-OpenFunctions:                              url(":/IDAG/resources/menu/OpenFunctions.png");
+    qproperty-themeicon-OpenImports:                                url(":/IDAG/resources/menu/OpenImports.png");
+    qproperty-themeicon-OpenLocalTypes:                             url(":/IDAG/resources/menu/OpenLocalTypes.png");
+    qproperty-themeicon-OpenNames:                                  url(":/IDAG/resources/menu/OpenNames.png");
+    qproperty-themeicon-OpenNotepad:                                url(":/IDAG/resources/menu/OpenNotepad.png");
+    qproperty-themeicon-OpenProblems:                               url(":/IDAG/resources/menu/OpenProblems.png");
+    qproperty-themeicon-OpenSegmentRegisters:                       url(":/IDAG/resources/menu/OpenSegmentRegisters.png");
+    qproperty-themeicon-OpenSegments:                               url(":/IDAG/resources/menu/OpenSegments.png");
+    qproperty-themeicon-OpenSelectors:                              url(":/IDAG/resources/menu/OpenSelectors.png");
+    qproperty-themeicon-OpenSignatures:                             url(":/IDAG/resources/menu/OpenSignatures.png");
+    qproperty-themeicon-OpenStackVariables:                         url(":/IDAG/resources/menu/OpenStackVariables.png");
+    qproperty-themeicon-OpenStrings:                                url(":/IDAG/resources/menu/OpenStrings.png");
+    qproperty-themeicon-OpenStructures:                             url(":/IDAG/resources/menu/OpenStructures.png");
+    qproperty-themeicon-OpenTypeLibraries:                          url(":/IDAG/resources/menu/OpenTypeLibraries.png");
+    qproperty-themeicon-OpenXrefs:                                  url(":/IDAG/resources/menu/OpenXrefs.png");
+    qproperty-themeicon-Options:                                    url(":/IDAG/resources/menu/Options.png");
+    qproperty-themeicon-FloatingSetup:                              url(":/IDAG/resources/menu/FloatingSetup.png");
+    qproperty-themeicon-OutputWindow:                               url(":/IDAG/resources/menu/OutputWindow.png");
+    qproperty-themeicon-PatchedBytes:                               url(":/IDAG/resources/menu/PatchedBytes.png");
+    qproperty-themeicon-ProcessExit:                                url(":/IDAG/resources/menu/ProcessExit.png");
+    qproperty-themeicon-ProcessPause:                               url(":/IDAG/resources/menu/ProcessPause.png");
+    qproperty-themeicon-ProcessStart:                               url(":/IDAG/resources/menu/ProcessStart.png");
+    qproperty-themeicon-ProduceAsm:                                 url(":/IDAG/resources/menu/ProduceAsm.png");
+    qproperty-themeicon-ProduceHeader:                              url(":/IDAG/resources/menu/ProduceHeader.png");
+    qproperty-themeicon-ProduceInc:                                 url(":/IDAG/resources/menu/ProduceInc.png");
+    qproperty-themeicon-ProduceLst:                                 url(":/IDAG/resources/menu/ProduceLst.png");
+    qproperty-themeicon-QuitIDA:                                    url(":/IDAG/resources/menu/QuitIDA.png");
+    qproperty-themeicon-ReadWriteTraceAdd:                          url(":/IDAG/resources/menu/ReadWriteTraceAdd.png");
+    qproperty-themeicon-RecentScripts:                              url(":/IDAG/resources/menu/RecentScripts.png");
+    qproperty-themeicon-Return:                                     url(":/IDAG/resources/menu/Return.png");
+    qproperty-themeicon-SaveBase:                                   url(":/IDAG/resources/menu/SaveBase.png");
+    qproperty-themeicon-SaveBaseSnap:                               url(":/IDAG/resources/menu/SaveBaseSnap.png");
+    qproperty-themeicon-SaveDesktop:                                url(":/IDAG/resources/menu/SaveDesktop.png");
+    qproperty-themeicon-SearchNext:                                 url(":/IDAG/resources/menu/SearchNext.png");
+    qproperty-themeicon-SetDirection:                               url(":/IDAG/resources/menu/SetDirection.png");
+    qproperty-themeicon-SetType:                                    url(":/IDAG/resources/menu/SetType.png");
+    qproperty-themeicon-ShortcutEditor:                             url(":/IDAG/resources/menu/ShortcutEditor.png");
+    qproperty-themeicon-ShowFlags:                                  url(":/IDAG/resources/menu/ShowFlags.png");
+    qproperty-themeicon-ShowHelp:                                   url(":/IDAG/resources/menu/ShowHelp.png");
+    qproperty-themeicon-ShowRegisters:                              url(":/IDAG/resources/menu/ShowRegisters.png");
+    qproperty-themeicon-ShowSnapMan:                                url(":/IDAG/resources/menu/ShowSnapMan.png");
+    qproperty-themeicon-ShrinkStruct:                               url(":/IDAG/resources/menu/ShrinkStruct.png");
+    qproperty-themeicon-StackTrace:                                 url(":/IDAG/resources/menu/StackTrace.png");
+    qproperty-themeicon-StackView:                                  url(":/IDAG/resources/menu/StackView.png");
+    qproperty-themeicon-StringC:                                    url(":/IDAG/resources/menu/StringC.png");
+    qproperty-themeicon-StringDOS:                                  url(":/IDAG/resources/menu/StringDOS.png");
+    qproperty-themeicon-StringDelphi:                               url(":/IDAG/resources/menu/StringDelphi.png");
+    qproperty-themeicon-StringPascal1:                              url(":/IDAG/resources/menu/StringPascal1.png");
+    qproperty-themeicon-StringPascal2:                              url(":/IDAG/resources/menu/StringPascal2.png");
+    qproperty-themeicon-StringUnicode:                              url(":/IDAG/resources/menu/StringUnicode.png");
+    qproperty-themeicon-StringUnicodePascal2:                       url(":/IDAG/resources/menu/StringUnicodePascal2.png");
+    qproperty-themeicon-StringUnicodePascal4:                       url(":/IDAG/resources/menu/StringUnicodePascal4.png");
+    qproperty-themeicon-SwitchToSource:                             url(":/IDAG/resources/menu/SwitchToSource.png");
+    qproperty-themeicon-TakeSnapshot:                               url(":/IDAG/resources/menu/TakeSnapshot.png");
+    qproperty-themeicon-ThreadRunToCursor:                          url(":/IDAG/resources/menu/ThreadRunToCursor.png");
+    qproperty-themeicon-ThreadRunUntilReturn:                       url(":/IDAG/resources/menu/ThreadRunUntilReturn.png");
+    qproperty-themeicon-ThreadSetCurrentIp:                         url(":/IDAG/resources/menu/ThreadSetCurrentIp.png");
+    qproperty-themeicon-ThreadStepInto:                             url(":/IDAG/resources/menu/ThreadStepInto.png");
+    qproperty-themeicon-ThreadStepOver:                             url(":/IDAG/resources/menu/ThreadStepOver.png");
+    qproperty-themeicon-Threads:                                    url(":/IDAG/resources/menu/Threads.png");
+    qproperty-themeicon-ToggleDump:                                 url(":/IDAG/resources/menu/ToggleDump.png");
+    qproperty-themeicon-ToggleLeadingZeroes:                        url(":/IDAG/resources/menu/ToggleLeadingZeroes.png");
+    qproperty-themeicon-ToggleSourceDebug:                          url(":/IDAG/resources/menu/ToggleSourceDebug.png");
+    qproperty-themeicon-ToggleTraceFunctions:                       url(":/IDAG/resources/menu/ToggleTraceFunctions.png");
+    qproperty-themeicon-ToggleTraceInstructions:                    url(":/IDAG/resources/menu/ToggleTraceInstructions.png");
+    qproperty-themeicon-TracingWindow:                              url(":/IDAG/resources/menu/TracingWindow.png");
+    qproperty-themeicon-UnHide:                                     url(":/IDAG/resources/menu/UnHide.png");
+    qproperty-themeicon-UnHideAll:                                  url(":/IDAG/resources/menu/UnHideAll.png");
+    qproperty-themeicon-UndoReturn:                                 url(":/IDAG/resources/menu/UndoReturn.png");
+    qproperty-themeicon-WatchList:                                  url(":/IDAG/resources/menu/WatchList.png");
+    qproperty-themeicon-WatchView:                                  url(":/IDAG/resources/menu/WatchView.png");
+    qproperty-themeicon-WindowOpen:                                 url(":/IDAG/resources/menu/WindowOpen.png");
+    qproperty-themeicon-WindowsList:                                url(":/IDAG/resources/menu/WindowsList.png");
+    qproperty-themeicon-WriteTraceAdd:                              url(":/IDAG/resources/menu/WriteTraceAdd.png");
+    qproperty-themeicon-LocalTypesSync:                             url(":/IDAG/resources/menu/LocalTypesSync.png");
+    qproperty-themeicon-LocalTypesExportToHeader:                   url(":/IDAG/resources/menu/LocalTypesExportToHeader.png");
+    qproperty-themeicon-DebuggerSuspendThread:                      url(":/IDAG/resources/menu/DebuggerSuspendThread.png");
+    qproperty-themeicon-DebuggerResumeThread:                       url(":/IDAG/resources/menu/DebuggerResumeThread.png");
+    qproperty-themeicon-ShowUndoHistory:                            url(":/IDAG/resources/menu/ShowUndoHistory.png");
+    qproperty-themeicon-ActinsQuickFilter:                          url(":/IDAG/resources/menu/ActinsQuickFilter.png");
+    qproperty-themeicon-DiffPrevChunk:                              url(":/IDAG/resources/menu/DiffPrevChunk.png");
+    qproperty-themeicon-DiffCenterChunk:                            url(":/IDAG/resources/menu/DiffCenterChunk.png");
+    qproperty-themeicon-DiffNextChunk:                              url(":/IDAG/resources/menu/DiffNextChunk.png");
+    qproperty-themeicon-DiffPrevConflict:                           url(":/IDAG/resources/menu/DiffPrevConflict.png");
+    qproperty-themeicon-DiffNextConflict:                           url(":/IDAG/resources/menu/DiffNextConflict.png");
+    qproperty-themeicon-DiffApplyHandlerNoConflicts:                url(":/IDAG/resources/menu/DiffApplyHandlerNoConflicts.png");
+    qproperty-themeicon-DiffApplyHandlerPickLocalOnConflict:        url(":/IDAG/resources/menu/DiffApplyHandlerPickLocalOnConflict.png");
+    qproperty-themeicon-DiffProceedToTheNextStep:                   url(":/IDAG/resources/menu/DiffProceedToTheNextStep.png");
+    qproperty-themeicon-DiffApplyHandlerPickRemoteOnConflict:       url(":/IDAG/resources/menu/DiffApplyHandlerPickRemoteOnConflict.png");
+    qproperty-themeicon-DiffApplyPickLocal:                         url(":/IDAG/resources/menu/DiffApplyPickLocal.png");
+    qproperty-themeicon-DiffApplyPickRemote:                        url(":/IDAG/resources/menu/DiffApplyPickRemote.png");
+    qproperty-themeicon-DiffToggleBasePanel:                        url(":/IDAG/resources/menu/DiffToggleBasePanel.png");
+    qproperty-themeicon-DiffToggleDetails:                          url(":/IDAG/resources/menu/DiffToggleDetails.png");
+}
